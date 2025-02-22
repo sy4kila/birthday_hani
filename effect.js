@@ -4,18 +4,38 @@ $(document).ready(function() {
 });
 
 $('document').ready(function(){
-		var vw;
-		$(window).resize(function(){
-			 vw = $(window).width()/2;
-			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-			$('#b11').animate({top:240, left: vw-350},500);
-			$('#b22').animate({top:240, left: vw-250},500);
-			$('#b33').animate({top:240, left: vw-150},500);
-			$('#b44').animate({top:240, left: vw-50},500);
-			$('#b55').animate({top:240, left: vw+50},500);
-			$('#b66').animate({top:240, left: vw+150},500);
-			$('#b77').animate({top:240, left: vw+250},500);
-		});
+    var vw;
+
+    // On window resize, adjust balloon sizes and positions
+    $(window).resize(function(){
+        // Calculate the viewport width
+        vw = $(window).width() / 2;
+
+        // Set a scaling factor for the balloons based on the viewport width
+        var scaleFactor = Math.min(vw / 500, 1); // Adjust scale based on screen width
+
+        // Resize balloons with initials dynamically
+        $('#b1, #b2, #b3, #b4, #b5, #b6, #b7').each(function() {
+            var newSize = 50 * scaleFactor; // Balloon size scaling
+            $(this).css({
+                'width': newSize + 'px',
+                'height': newSize + 'px'
+            });
+        });
+
+        // Original animation for the balloons with initials
+        $('#b11').animate({top: 240, left: vw - 350}, 500);
+        $('#b22').animate({top: 240, left: vw - 250}, 500);
+        $('#b33').animate({top: 240, left: vw - 150}, 500);
+        $('#b44').animate({top: 240, left: vw - 50}, 500);
+        $('#b55').animate({top: 240, left: vw + 50}, 500);
+        $('#b66').animate({top: 240, left: vw + 150}, 500);
+        $('#b77').animate({top: 240, left: vw + 250}, 500);
+    });
+
+    // Trigger initial resize to adjust the balloons when the page first loads
+    $(window).trigger('resize');
+
 
 	$('#turn_on').click(function(){
 		$('#bulb_yellow').addClass('bulb-glow-yellow');
