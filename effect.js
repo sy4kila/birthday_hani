@@ -3,12 +3,6 @@ $(document).ready(function() {
     $('.container').fadeIn('fast');
 });
 
- // Set fixed size for balloons with initials
- $('#b1, #b2, #b3, #b4, #b5, #b6, #b7').css({
-	'width': '50px',
-	'height': '50px'
-});
-
 $('document').ready(function(){
 		var vw;
 		$(window).resize(function(){
