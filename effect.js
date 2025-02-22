@@ -3,6 +3,7 @@ $(document).ready(function() {
     $('.container').fadeIn('fast');
 });
 
+//fuck you motherfucker
 $('document').ready(function(){
     var vw;
 
